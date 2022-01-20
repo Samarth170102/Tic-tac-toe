@@ -1,6 +1,6 @@
 # Tic Tac Toe - Android
 
-Game mode:
+## Game mode:
 
 CPU
 
