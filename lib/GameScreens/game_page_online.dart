@@ -22,7 +22,6 @@ class OnlineTournament extends StatefulWidget {
 class _OnlineTournamentState extends State<OnlineTournament> {
   @override
   Widget build(BuildContext context) {
-    VxState.watch(context, on: [SetStateMutation]);
     final userOld = widget.userOld;
     return StreamBuilder<DocumentSnapshot>(
       stream: Database().dataCollection.doc(widget.anotherUserUid).snapshots(),
@@ -147,7 +146,7 @@ class _OnlineTournamentState extends State<OnlineTournament> {
                                   anotherUser.get("username"),
                                   1,
                                   0,
-                                  110,
+                                  112,
                                   user.darkMode!,
                                   user.accentColor!,
                                   context),
@@ -159,7 +158,7 @@ class _OnlineTournamentState extends State<OnlineTournament> {
                                   user.username.toString(),
                                   anotherUser.get("username"),
                                   2,
-                                  0,
+                                  -1,
                                   220,
                                   user.darkMode!,
                                   user.accentColor!,
@@ -173,7 +172,7 @@ class _OnlineTournamentState extends State<OnlineTournament> {
                                   anotherUser.get("username"),
                                   3,
                                   111,
-                                  0,
+                                  -1,
                                   user.darkMode!,
                                   user.accentColor!,
                                   context),
@@ -185,8 +184,8 @@ class _OnlineTournamentState extends State<OnlineTournament> {
                                   user.username.toString(),
                                   anotherUser.get("username"),
                                   4,
+                                  111.5,
                                   111,
-                                  110,
                                   user.darkMode!,
                                   user.accentColor!,
                                   context),
@@ -199,7 +198,7 @@ class _OnlineTournamentState extends State<OnlineTournament> {
                                   anotherUser.get("username"),
                                   5,
                                   111,
-                                  220,
+                                  221,
                                   user.darkMode!,
                                   user.accentColor!,
                                   context),
@@ -225,7 +224,7 @@ class _OnlineTournamentState extends State<OnlineTournament> {
                                   anotherUser.get("username"),
                                   7,
                                   222,
-                                  110,
+                                  111.5,
                                   user.darkMode!,
                                   user.accentColor!,
                                   context),
@@ -238,7 +237,7 @@ class _OnlineTournamentState extends State<OnlineTournament> {
                                   anotherUser.get("username"),
                                   8,
                                   222,
-                                  220,
+                                  222,
                                   user.darkMode!,
                                   user.accentColor!,
                                   context),
@@ -339,8 +338,8 @@ Positioned positionedBoxForGameTournament(
     BuildContext context) {
   bool isCross = myCheckboxes[index] == "x";
   return Positioned(
-    top: top,
-    left: left,
+    top: forHeight(top),
+    left: forHeight(left),
     child: GestureDetector(
       onTap: () async {
         if (isMyTurn) {
@@ -373,7 +372,7 @@ Positioned positionedBoxForGameTournament(
                     : darkMode
                         ? Vx.blue500
                         : Vx.blue400,
-              ).pSymmetric(h: forHeight(isCross ? 19 : 17)),
+              ).pSymmetric(h: forHeight(isCross ? 19 : 16)),
             )
           : Container(
               height: forHeight(111),
