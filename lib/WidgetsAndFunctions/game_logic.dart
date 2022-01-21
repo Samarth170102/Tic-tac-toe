@@ -81,8 +81,8 @@ void checkWinForTournament(List<dynamic> myCheckboxes, String accentColor,
     showWinTournament(0, myCheckboxes, user, otherUser);
   } else if (checkConditionsForWinTournament(myCheckboxes, 2, 4, 6)) {
     showWinTournament(2, myCheckboxes, user, otherUser);
-  } else if (!checkboxes.contains("") && !isWin) {
-    isWin = true;
+  } else if (!myCheckboxes.contains("") && !isWin) {
+    showWinTournament(9, myCheckboxes, user, otherUser);
   }
 }
 
@@ -120,27 +120,42 @@ showWinTournament(int index, List<dynamic> myCheckboxes, UserDataModel user,
   String date = ("${DateFormat('dd').format(DateTime.now())} "
       "${months[int.parse(DateFormat('MM').format(DateTime.now()).toString())]} "
       "${DateFormat('yyy').format(DateTime.now())}");
-  if (myCheckboxes[index] == mySign) {
+  if (index != 9) {
+    if (myCheckboxes[index] == mySign) {
+      isWin = true;
+      wins = user.wins! + 1;
+      loses = otherUser.get("loses") + 1;
+      userStatsList
+          .add({"uid": otherUser.get("uid"), "result": "Won", "date": date});
+      otherUserStatsList.add({"uid": user.uid, "result": "Lose", "date": date});
+      winner = "$username Won!";
+      Database()
+          .dataCollection
+          .doc(user.uid)
+          .update({"wins": wins, "statsList": userStatsList});
+      Database()
+          .dataCollection
+          .doc(otherUser.get("uid"))
+          .update({"loses": loses, "statsList": otherUserStatsList});
+    } else {
+      isWin = true;
+      winner = "$anotherUsername Won!";
+    }
+  } else {
     isWin = true;
-    wins = user.wins! + 1;
-    loses = otherUser.get("loses") + 1;
     userStatsList
-        .add({"uid": otherUser.get("uid"), "result": "Won", "date": date});
-    otherUserStatsList.add({"uid": user.uid, "result": "Lose", "date": date});
-    winner = "$username Won!";
+        .add({"uid": otherUser.get("uid"), "result": "Tied", "date": date});
+    otherUserStatsList.add({"uid": user.uid, "result": "Tied", "date": date});
+    winner = "Match Tied!";
     Database()
         .dataCollection
         .doc(user.uid)
-        .update({"wins": wins, "statsList": userStatsList});
+        .update({"statsList": userStatsList});
     Database()
         .dataCollection
         .doc(otherUser.get("uid"))
-        .update({"loses": loses, "statsList": otherUserStatsList});
-  } else {
-    isWin = true;
-    winner = "$anotherUsername Won!";
+        .update({"statsList": otherUserStatsList});
   }
-  SetStateMutation();
 }
 
 showWinToastCPU(int index, String accentColor, BuildContext context) {
