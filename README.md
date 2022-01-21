@@ -5,5 +5,5 @@
 CPU
 
 2 Players
-
+ 
 Online
