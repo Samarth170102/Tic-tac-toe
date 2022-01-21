@@ -154,8 +154,8 @@ Positioned positionedBoxForGame2Players(int index, double top, double left,
     bool darkMode, String accentColor, BuildContext context) {
   bool isCross = checkboxes[index] == "x";
   return Positioned(
-    top: top,
-    left: left,
+    top: forHeight(top),
+    left: forHeight(left),
     child: GestureDetector(
       onTap: () async {
         if (is1stPlayerTurn) {
@@ -164,6 +164,15 @@ Positioned positionedBoxForGame2Players(int index, double top, double left,
               checkboxes[index] = "o";
               checkWinFor2Players(accentColor, context);
               is1stPlayerTurn = false;
+              SetStateMutation();
+            }
+          }
+        } else {
+          if (!isWin) {
+            if (checkboxes[index] == "") {
+              checkboxes[index] = "x";
+              checkWinFor2Players(accentColor, context);
+              is1stPlayerTurn = true;
               SetStateMutation();
             }
           }
