@@ -76,12 +76,12 @@ class _SignUpState extends State<SignUp> {
                         "Sign Up",
                         style: TextStyle(
                             color: Vx.black.withOpacity(0.7),
-                            fontSize: 2.2112 * height,
+                            fontSize: 2.7112 * height,
                             fontWeight: FontWeight.w400),
                       ),
                     ),
                     SizedBox(
-                      height: 0.9046 * height,
+                      height: 1.6046 * height,
                     ),
                     TextFormField(
                       cursorColor: Vx.black,

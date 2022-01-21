@@ -53,13 +53,13 @@ class _SignInState extends State<SignIn> {
                       child: Text(
                         "Sign In",
                         style: TextStyle(
-                            color: Vx.black,
-                            fontSize: 2.2112 * height,
+                            color: Vx.black.withOpacity(0.7),
+                            fontSize: 2.7112 * height,
                             fontWeight: FontWeight.w400),
                       ),
                     ),
                     SizedBox(
-                      height: 0.9046 * height,
+                      height: 1.6046 * height,
                     ),
                     TextFormField(
                       cursorColor: Vx.black,
@@ -125,8 +125,7 @@ class _SignInState extends State<SignIn> {
                             dynamic result = await _authService
                                 .signInWithEmailAndPassword(email, password);
                             Future.delayed(Duration(seconds: 3));
-                            if (result == null) {
-                            }
+                            if (result == null) {}
                           } catch (e) {
                             setState(() {
                               loading = false;
