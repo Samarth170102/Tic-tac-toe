@@ -62,15 +62,15 @@ class _WaitingForAcceptState extends State<WaitingForAccept> {
         body: Column(
           children: [
             rowforHeadingInEditProfile("Waiting Page", user.darkMode!, context,
-                function: goBackToOnlinePage),  
+                function: goBackToOnlinePage),
             sizedBoxForHeight(270),
             Text(
               "Please wait until the other user accept your request",
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontSize: forHeight(25),
+                  fontSize: forWidth(25),
                   color: user.darkMode! ? Vx.white : Vx.black),
-            ),
+            ).pSymmetric(h: forWidth(10)),
             sizedBoxForHeight(290),
             Visibility(
               visible: requestCancle,
