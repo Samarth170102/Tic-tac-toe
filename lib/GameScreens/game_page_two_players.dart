@@ -126,21 +126,21 @@ class _GamePage2PlayersState extends State<GamePage2Players> {
                 positionedBoxForGame2Players(
                     0, 0, 0, user.darkMode!, user.accentColor!, context),
                 positionedBoxForGame2Players(
-                    1, 0, 110, user.darkMode!, user.accentColor!, context),
+                    1, 0, 112, user.darkMode!, user.accentColor!, context),
                 positionedBoxForGame2Players(
-                    2, 0, 220, user.darkMode!, user.accentColor!, context),
+                    2, -1, 220, user.darkMode!, user.accentColor!, context),
                 positionedBoxForGame2Players(
-                    3, 111, 0, user.darkMode!, user.accentColor!, context),
+                    3, 111, -1, user.darkMode!, user.accentColor!, context),
                 positionedBoxForGame2Players(
-                    4, 111, 110, user.darkMode!, user.accentColor!, context),
+                    4, 111.5, 111, user.darkMode!, user.accentColor!, context),
                 positionedBoxForGame2Players(
-                    5, 111, 220, user.darkMode!, user.accentColor!, context),
+                    5, 111, 221, user.darkMode!, user.accentColor!, context),
                 positionedBoxForGame2Players(
                     6, 222, 0, user.darkMode!, user.accentColor!, context),
                 positionedBoxForGame2Players(
-                    7, 222, 110, user.darkMode!, user.accentColor!, context),
+                    7, 222, 111.5, user.darkMode!, user.accentColor!, context),
                 positionedBoxForGame2Players(
-                    8, 222, 220, user.darkMode!, user.accentColor!, context),
+                    8, 222, 222, user.darkMode!, user.accentColor!, context),
               ],
             )
           ],

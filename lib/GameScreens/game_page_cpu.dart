@@ -142,21 +142,21 @@ class _GamePageCPUState extends State<GamePageCPU> {
                     )),
                 positionedBoxForGameCPU(0, isEasy, 0, 0, user.darkMode!,
                     user.accentColor!, context),
-                positionedBoxForGameCPU(1, isEasy, 0, 110, user.darkMode!,
+                positionedBoxForGameCPU(1, isEasy, 0, 112, user.darkMode!,
                     user.accentColor!, context),
-                positionedBoxForGameCPU(2, isEasy, 0, 220, user.darkMode!,
+                positionedBoxForGameCPU(2, isEasy, -1, 220, user.darkMode!,
                     user.accentColor!, context),
-                positionedBoxForGameCPU(3, isEasy, 111, 0, user.darkMode!,
+                positionedBoxForGameCPU(3, isEasy, 111, -1, user.darkMode!,
                     user.accentColor!, context),
-                positionedBoxForGameCPU(4, isEasy, 111, 110, user.darkMode!,
+                positionedBoxForGameCPU(4, isEasy, 111.5, 111, user.darkMode!,
                     user.accentColor!, context),
-                positionedBoxForGameCPU(5, isEasy, 111, 220, user.darkMode!,
+                positionedBoxForGameCPU(5, isEasy, 111, 221, user.darkMode!,
                     user.accentColor!, context),
                 positionedBoxForGameCPU(6, isEasy, 222, 0, user.darkMode!,
                     user.accentColor!, context),
-                positionedBoxForGameCPU(7, isEasy, 222, 110, user.darkMode!,
+                positionedBoxForGameCPU(7, isEasy, 222, 111.5, user.darkMode!,
                     user.accentColor!, context),
-                positionedBoxForGameCPU(8, isEasy, 222, 220, user.darkMode!,
+                positionedBoxForGameCPU(8, isEasy, 222, 222, user.darkMode!,
                     user.accentColor!, context),
               ],
             )
@@ -171,8 +171,8 @@ Positioned positionedBoxForGameCPU(int index, bool isEasy, double top,
     double left, bool darkMode, String accentColor, BuildContext context) {
   bool isCross = checkboxes[index] == "x";
   return Positioned(
-    top: top,
-    left: left,
+    top: forHeight(top),
+    left: forHeight(left),
     child: GestureDetector(
       onTap: () async {
         if (isUserTurn) {
