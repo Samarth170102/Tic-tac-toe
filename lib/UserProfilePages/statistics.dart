@@ -222,7 +222,9 @@ class _StatisticsState extends State<Statistics> {
                                   ],
                                 ),
                                 Text(
-                                  "You $result",
+                                  result != "Tied"
+                                      ? "You $result"
+                                      : "Match $result",
                                   style: TextStyle(
                                       fontSize: forHeight(18),
                                       color: Vx.white,
