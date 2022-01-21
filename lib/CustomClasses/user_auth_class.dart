@@ -1,4 +1,5 @@
 class UserAuthData {
+  
   String uid;
   String creationTime;
   String lastSignInTime;
